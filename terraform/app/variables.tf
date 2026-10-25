@@ -34,8 +34,9 @@ variable "lambda_timeout_s" {
 }
 
 variable "domain_name" {
-  type    = string
-  default = "mitos.pantelis-tsagkas.com"
+  description = "The app is \"Ρώτα το\" (013): \"mitos\" in the address would look like the official service."
+  type        = string
+  default     = "rotato.pantelis-tsagkas.com"
 }
 
 variable "custom_domain_ready" {
@@ -43,9 +44,11 @@ variable "custom_domain_ready" {
     False until the ACM validation CNAME (output acm_validation_records) is added at the DNS
     provider (Vercel) and the certificate shows ISSUED. Then true: CloudFront answers on
     var.domain_name, and the second CNAME (output cloudfront_domain) can be added.
+    True by default since rotato's certificate was validated (2026-10-25), so a plan that
+    forgets the flag cannot detach the domain. A new domain_name needs false first.
   EOT
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "log_retention_days" {

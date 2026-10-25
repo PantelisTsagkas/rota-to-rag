@@ -1,7 +1,7 @@
 # PRD: Mitos RAG, an assistant for Greek public procedures
 
 Owner: Pantelis Tsagkas
-Status: Draft v2 (2026-10-12)
+Status: Draft v2 (2026-10-12), the original plan. Phases 0 to 5 are done and Phase 6 is deployed as a demo (2026-10-25); the README has the current state and results, and `docs/decisions/` the measured choices.
 Audience: the owner and Claude Code, who build this together
 
 Changes in v2: structured facts next to RAG, two-stage retrieval, chunk metadata, answer validation, "not found" vs "ambiguous", atomic data refresh, stratified eval with a held-out test set, embedding runtime cost, privacy and cost controls, and a "simple first" build rule.
@@ -84,7 +84,7 @@ Mitos content is published under **CC BY-SA 4.0**:
 
 - **Attribution:** every answer and the UI footer credit Mitos with a link.
 - **ShareAlike:** a published processed dataset or derived database must be CC BY-SA 4.0 too. Review this before publishing any dataset.
-- The application code licence is separate (to be decided by the owner).
+- The application code is under the MIT licence (`LICENSE`), separate from the data licence.
 
 ### 5.3 Provenance kept for every procedure
 
@@ -196,11 +196,13 @@ Prompt rules still apply: answer only from the evidence, simple Greek, bullet li
 - **Not found:** nothing relevant in Mitos. Say so clearly: "Δεν βρήκα αυτή την πληροφορία στο Μητρώο Μίτος", and suggest the closest procedures if any.
 - **Ambiguous:** several procedures fit and we can't tell which applies (e.g. first passport vs renewal vs lost passport). Ask one short clarifying question with the options as buttons.
 
-## 7. Decisions (options, not yet chosen)
+## 7. Decisions (the original options; outcomes noted per section)
 
 Decide each with eval evidence, not reputation. Write each decision and its numbers in `docs/decisions/NNN-title.md`.
 
 ### 7.1 Embeddings
+
+**Decided 2026-10-14: Cohere Embed Multilingual v3 on Bedrock, dense only** (`docs/decisions/004-dense-retrieval-cohere.md`). Titan V2 was deferred; the open-weight options were not run, because a query embedding at runtime needs a hosted model.
 
 | Option | For | Watch out |
 |---|---|---|
@@ -223,6 +225,8 @@ Decide each with eval evidence, not reputation. Write each decision and its numb
 | **Qdrant** | Dedicated vector DB, good local dev | One more service to run; keyword search and RRF still to design. |
 
 ### 7.3 LLM, compute, frontend
+
+**Decided:** Claude Sonnet 4.6 answers with a Claude Haiku 4.5 reranker, in eu-central-1 (009); Lambda with a Function URL behind CloudFront, not API Gateway or Fargate (013); a static Greek UI on S3 + CloudFront (`web/`).
 
 - **LLM:** a Greek-capable model (e.g. a Claude model on Bedrock in an EU region), chosen by answer quality, latency and cost on the eval set.
 - **API:** FastAPI locally. In AWS, Lambda + API Gateway if measured latency and DB connections allow; otherwise ECS Fargate.
@@ -290,11 +294,11 @@ Decide each with eval evidence, not reputation. Write each decision and its numb
 
 **Phase 0: Data (done).** Client, downloader, renderer, tests.
 
-**Phase 1: Validate the real data**
+**Phase 1: Validate the real data** (done: decision 001)
 1. Run the full download; read 5 to 10 random documents; fix the renderer.
 2. Build the structured facts table (6.1) and the provenance fields (5.3), with tests.
 
-**Phase 2: Evaluation set**
+**Phase 2: Evaluation set** (done: 30 questions, decisions 002 and 003)
 3. Write ~50 questions across all six categories, split dev/test (8.1).
 4. Build `mitos-eval` and record the BM25-only baseline.
 
@@ -303,22 +307,22 @@ Decide each with eval evidence, not reputation. Write each decision and its numb
 6. ~~Postgres + pgvector in Docker~~ Dropped: S3 Vectors chosen (005). Procedure-level retrieval with dedup (6.4); hybrid RRF was measured and not adopted (004).
 7. Compare embedding models (7.1) on quality AND runtime cost. Record the decision.
 
-**Phase 4: Grounded answers** (built: decision 006; measured on dev, test split not yet run)
+**Phase 4: Grounded answers** (done: decisions 006 to 011; test split run once on 2026-10-22)
 8. Structured LLM output, code validation, answered / ambiguous / not_found (6.5, 6.6).
 9. CLI: `uv run mitos-ask "ερώτηση"`. Run the eval on the test set.
 
-**Phase 5: API + UI** (built: `/ask` and a non-streaming UI in `web/`; streaming next)
+**Phase 5: API + UI** (done: `/ask`, streaming `/ask/stream` and the Greek UI, decisions 012 and 014)
 10. FastAPI `/ask`; streaming only once the basic endpoint is reliable.
 11. Mobile-first Greek UI based on the mockup; sources prominent.
 
-**Phase 6: AWS production**
+**Phase 6: AWS production** (deployed as a demo, decision 013: Lambda, CloudFront, S3, DynamoDB, Budgets, IAM and the custom domain in Terraform. Not done: WAF, GitHub Actions, scheduled refresh, dashboard and alarms)
 12. Price the options first (database, model, logging, networking).
 13. Terraform: compute, database, S3 snapshots, CloudFront + WAF, Budgets, IAM.
 14. GitHub Actions: test, eval, plan, apply (OIDC).
 15. Scheduled atomic refresh (EventBridge Scheduler) with failure alerts.
 16. Dashboard and alarms.
 
-**Phase 7: Showcase**
+**Phase 7: Showcase** (README done 2026-10-25; post and case study next)
 17. README: architecture diagram, eval results, measured latency, real monthly cost, failure cases, what changed because of the eval.
 18. LinkedIn post: the problem, a short demo video, the architecture, one real lesson.
 
