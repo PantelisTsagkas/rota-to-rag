@@ -1,0 +1,419 @@
+{
+  "metadata": {
+    "process": {
+      "official_title": "Αποδεικτικό φορολογικής ενημερότητας",
+      "alternative_titles": [
+        "Φορολογική ενημερότητα"
+      ],
+      "description": "Η διαδικασία αφορά στην έκδοση αποδεικτικού φορολογικής ενημερότητας για χρέη προς το Δημόσιο.",
+      "org_owner_is_private": false,
+      "org_owner": 73401,
+      "provision_org_owner_directory": [
+        563283
+      ],
+      "provision_org_group": [
+        2832,
+        5659,
+        7227
+      ],
+      "provision_org_directory": [
+        "Κατά τόπους Γραφεία Εξυπηρέτησης Φορολογούμενων"
+      ],
+      "remarks": "Τηρείται η προθεσμία των δέκα (10) ημερών για την έκδοση πιστοποιητικών, κατά το άρθρο 4 του ν. 2690/99.",
+      "deadline_duration": "P10D",
+      "evidence_identification_type": [
+        "Ταυτοποίηση με κωδικούς TAXISnet",
+        "Ταυτοποιητικό έγγραφο"
+      ],
+      "type": "Εξωστρεφής",
+      "trigger": [
+        "Αιτούμενη"
+      ],
+      "trigger_type": [
+        "Αίτηση (ψηφιακά)"
+      ],
+      "usage": [
+        "Δικαιολογητικό"
+      ],
+      "output_type": [
+        "Διοικητική πράξη",
+        "Παραγωγή Ψηφιακού εγγράφου"
+      ],
+      "delivery_type": [
+        "Θυρίδες gov.gr"
+      ],
+      "validity_duration_set": "Καθορισμένη",
+      "validity_duration": "P1M",
+      "provided_to": [
+        "Δημόσιους φορείς",
+        "Ελεύθερους επαγγελματίες",
+        "Επιχειρήσεις",
+        "Φορολογούμενους"
+      ],
+      "tax_type": [
+        "Αιτήσεις",
+        "Ενημερότητες"
+      ],
+      "life_events": [
+        "Φορολογία επιχειρήσεων",
+        "Φορολογία πολιτών"
+      ],
+      "total_duration_steps_min": "PT1S",
+      "total_duration_steps_max": "PT1S",
+      "total_duration_steps_digital_min": "PT1M",
+      "total_duration_steps_digital_max": "PT2M",
+      "evidence_alternative_total_number": "0",
+      "govgr_codes": [
+        1001086
+      ],
+      "application_type": "Αίτηση",
+      "application_submission_type": [
+        "Κατάθεση από τον αιτούντα (ψηφιακή)"
+      ],
+      "application_description": "Αίτηση για χορήγηση αποδεικτικού φορολογικής ενημερότητας",
+      "application_note": "Ο πολίτης εισέρχεται στην Ενιαία Ψηφιακή Πύλη (ΕΨΠ-gov.gr) για την υποβολή της αίτησης.\nΣε περίπτωση που δεν είναι δυνατή η χορήγηση αποδεικτικού ενημερότητας μέσω διαδικτύου τότε η εφαρμογή παρουσιάζει το μήνυμα: “Ο φορολογούμενος χρειάζεται να απευθυνθεί σε ΔΟΥ."
+    },
+    "process_conditions": [
+      {
+        "conditions_num_id": 1,
+        "conditions_alternative": false,
+        "conditions_type": "Κατοχής κωδικών για είσοδο σε λογισμικό",
+        "conditions_name": "Ο αιτών για την ηλεκτρονική έκδοση αποδεικτικού φορολογικής ενημερότητας για χρέη προς το Δημόσιο μέσω της ΕΨΠ- gov.gr απαιτείται να κατέχει κωδικούς taxisnet.",
+        "conditions_url": "https://www.gov.gr/ipiresies/polites-kai-kathemerinoteta/stoikheia-polite-kai-tautopoietika-eggrapha/elektronike-eggraphe-diakheirise-kodikon-taxisnet"
+      },
+      {
+        "conditions_num_id": 2,
+        "conditions_alternative": false,
+        "conditions_type": "Φορολογικές",
+        "conditions_name": "O αιτών να έχει τακτοποιήσει κατά νόμιμο τρόπο (με αναστολή είσπραξης ή με ρύθμιση τμηματικής καταβολής) τις τυχόν συνολικές ληξιπρόθεσμες βεβαιωμένες στη Φορολογική Διοίκηση βασικές οφειλές του (τόσο ατομικές όσο και οφειλές για τις οποίες έχει ευθύνη για την καταβολή τους σύμφωνα με τις κείμενες διατάξεις) άνω των τριάντα (30) ευρώ."
+      },
+      {
+        "conditions_num_id": 3,
+        "conditions_alternative": false,
+        "conditions_type": "Φορολογικές",
+        "conditions_name": "Θα πρέπει ο αιτών να έχει υποβάλλει τις απαραίτητες δηλώσεις."
+      },
+      {
+        "conditions_num_id": 4,
+        "conditions_alternative": false,
+        "conditions_type": "Φορολογικές",
+        "conditions_name": "Δεν θα πρέπει να  υφίσταται εις βάρος του αιτούντος δέσμευση έκδοσης αποδεικτικού από Τελωνείο ή άλλη Αρχή ή κατά τις διατάξεις των άρθρων 14 του ν. 2523/1997 και 45 του ν.5104/2024."
+      }
+    ],
+    "process_rules": [
+      {
+        "rule_type": "Νόμος",
+        "rule_decision_number": "5222",
+        "rule_decision_year": "2025",
+        "rule_article": "216",
+        "rule_description": "Αποδεικτικό ενημερότητας",
+        "rule_gazette_doc_number": 134,
+        "rule_gazette_doc_issue": "Α",
+        "rule_url": "https://api.et.gr/apiLAW/1/2025/5222/pdf"
+      },
+      {
+        "rule_type": "Νόμος",
+        "rule_decision_number": "5104",
+        "rule_decision_year": "2024",
+        "rule_article": "12",
+        "rule_description": "Αποδεικτικό ενημερότητας και βεβαίωση οφειλής",
+        "rule_gazette_doc_number": 58,
+        "rule_gazette_doc_issue": "Α",
+        "rule_url": "https://api.et.gr/apiLAW/1/2024/5104/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1115",
+        "rule_decision_year": "2025",
+        "rule_description": "Τροποποίηση της υπό στοιχεία Α.1162/19-10-2023 κοινής απόφασης του Υφυπουργού Εθνικής Οικονομίας και Οικονομικών και του Διοικητή της Ανεξάρτητης Αρχής Δημοσίων Εσόδων «Αποδεικτικό Ενημερότητας άρθρου 12 Κώδικα Φορολογικής Διαδικασίας  (ΚΦΔ, ν. 4987/2022, Α 206)» (Β΄6129).",
+        "rule_gazette_doc_number": 4329,
+        "rule_gazette_doc_issue": "Β",
+        "rule_ada": "Ρ7ΩΗ46ΜΠ3Ζ-19Γ",
+        "rule_url": "https://api.et.gr/apiFEK/2/2025/4329/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1118",
+        "rule_decision_year": "2025",
+        "rule_description": "Τροποποίηση της υπό στοιχεία ΠΟΛ 1275/2013 απόφασης του Γενικού Γραμματέα Δημοσίων Εσόδων του Υπουργείου Οικονομικών «Βεβαίωση οφειλής άρθρου 12 ν. 4174/2013 (Α΄170), όπως ισχύει» (Β΄3398).",
+        "rule_gazette_doc_number": 4330,
+        "rule_gazette_doc_issue": "Β",
+        "rule_ada": "9ΖΗΔ46ΜΠ3Ζ-ΓΛΛ",
+        "rule_url": "https://api.et.gr/apiFEK/2/2025/4330/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1072",
+        "rule_decision_year": "2025",
+        "rule_description": "Τροποποίηση της υπό στοιχεία Α. 1162/2023 κοινής απόφασης του Υφυπουργού Εθνικής Οικονομίας και Οικονομικών και\nτου Διοικητή της Ανεξάρτητης Αρχής Δημοσίων Εσόδων «Αποδεικτικό\nΕνημερότητας άρθρου 12 Κώδικα Φορολογικής Διαδικασίας (ΚΦΔ, ν.\n4987/2022, Α 206)» (Β΄6129).",
+        "rule_gazette_doc_number": 2748,
+        "rule_gazette_doc_issue": "Β",
+        "rule_ada": "9ΡΡΑ46ΜΠ3Ζ-ΥΚΦ",
+        "rule_url": "https://api.et.gr/apiFEK/2/2025/2748/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1162",
+        "rule_decision_year": "2023",
+        "rule_description": "Αποδεικτικό Ενημερότητας άρθρου 12 του Κώδικα Φορολογικής\nΔιαδικασίας (ΚΦΔ, ν.4987/2022, Α΄206)",
+        "rule_gazette_doc_number": 6129,
+        "rule_gazette_doc_issue": "Β",
+        "rule_ada": "9ΧΝΓ46ΜΠ3Ζ-ΕΩΨ",
+        "rule_url": "https://api.et.gr/apiFEK/2/2023/6129/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1163",
+        "rule_decision_year": "2023",
+        "rule_description": "Τροποποίηση του άρθρου 11 της υπό στοιχεία ΠΟΛ\n1274/27.12.2013 απόφασης του Γενικού Γραμματέα Δημοσίων Εσόδων του\nΥπουργείου Οικονομικών «Αποδεικτικό Ενημερότητας άρθρου 12\nν.4174/2013 (Α΄170), όπως ισχύει» (Β΄3398).",
+        "rule_gazette_doc_number": 6137,
+        "rule_gazette_doc_issue": "Β",
+        "rule_ada": "9ΛΩΡ46ΜΠ3Ζ-ΟΗ4",
+        "rule_url": "https://api.et.gr/apiFEK/2/2023/6137/pdf"
+      },
+      {
+        "rule_type": "Απόφαση Ανεξάρτητης Αρχής",
+        "rule_decision_number": "1002",
+        "rule_decision_year": "2018",
+        "rule_description": "Καθορισμός λεπτομερειών εφαρμογής της παρ. 9 του άρθρου 12 του ν. 4174/2013 (ΦΕΚ Α΄ 170)",
+        "rule_gazette_doc_number": 20,
+        "rule_gazette_doc_issue": "Β",
+        "rule_url": "https://api.et.gr/apiFEK/2/2018/20/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1274",
+        "rule_decision_year": "2013",
+        "rule_description": "Απόφαση Γενικού Γραμματέα Δημοσίων Εσόδων ΠΟΛ 1274/2013, όπως τροποποιήθηκε  με τις ΠΟΛ 1065/2014 (Β΄642), ΠΟΛ 1265/2015 (Β΄2862), ΠΟΛ 1038/2016 (Β΄874), ΠΟΛ 1222/2017 (Β΄1/2018), Α.1277/2019 (Β΄2985), Α.1464/2019 (Β΄4820), Α.1265/2020 (Β΄5346), Α.1033/2021 (Β΄703), καθώς και την περ. 40-44 αρ. 1 και παρ. 8 αρ. 2 της Απόφασης του Διοικητή Α.Α.Δ.Ε. Δ.ΟΡΓ.Α 1115805 ΕΞ 2017 (Β’ 2743) «Μεταβίβαση αρμοδιοτήτων και εξουσιοδότηση υπογραφής “Με εντολή Διοικητή” σε όργανα της Φορολογικής Διοίκησης», όπως ισχύει. ΕΠΙΣΗΜΑΙΝΕΤΑΙ ότι από την έναρξη ισχύος της Α 1162/2023 είναι σε ισχύ μόνο το άρθρο 11 της απόφασης ΠΟΛ 1274/2013.",
+        "rule_gazette_doc_number": 3398,
+        "rule_url": "https://api.et.gr/apiFEK/2/2013/3398/pdf",
+        "rule_ada": "ΒΕΝ2ΟΡΣΒ-9Υ8"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "1275",
+        "rule_decision_year": "2013",
+        "rule_description": "Απόφαση Γενικού Γραμματέα Δημοσίων Εσόδων ΠΟΛ 1275/2013 όπως τροποποιήθηκε με τις ΠΟΛ 1065/2014 (Β΄642), ΠΟΛ 1222/2017 (Β΄1/2018) και Α.1265/2020 (Β΄ 5346).",
+        "rule_gazette_doc_number": 3398,
+        "rule_url": "https://api.et.gr/apiFEK/2/2013/3398/pdf",
+        "rule_ada": "ΒΕΝ2ΟΡΣΒ-9Υ8"
+      },
+      {
+        "rule_type": "Υπουργική Απόφαση",
+        "rule_decision_number": "1123",
+        "rule_decision_year": "2012",
+        "rule_description": "Απόφαση Αναπληρωτή Υπουργού Οικονομικών ΠΟΛ 1123/2012",
+        "rule_gazette_doc_number": 1665,
+        "rule_gazette_doc_issue": "Β",
+        "rule_url": "https://api.et.gr/apiFEK/2/2012/1665/pdf"
+      },
+      {
+        "rule_type": "Εγκύκλιος",
+        "rule_decision_number": "2089",
+        "rule_decision_year": "2023",
+        "rule_description": "Παροχή διευκρινίσεων σχετικά με τη χορήγηση αποδεικτικού\nενημερότητας σύμφωνα με τις διατάξεις του άρθρου 12 του Κώδικα\nΦορολογικής Διαδικασίας (ΚΦΔ, ν.4987/2022, A’ 206) και τα οριζόμενα στην Α.1162/2023 (Β’ 6129) Κοινή Απόφαση του Υφυπουργού Εθνικής Οικονομίας και Οικονομικών και του Διοικητή της ΑΑΔΕ και στο άρθρο 11 της ΠΟΛ 1274/2013 (Β’ 3398) του Γενικού Γραμματέα Δημοσίων Εσόδων μετά την τροποποίηση με την Α. 1163/2023 (Β’ 6137) απόφαση Διοικητή ΑΑΔΕ.",
+        "rule_url": "https://diavgeia.gov.gr/decision/view/6%CE%9C%CE%A5%CE%A446%CE%9C%CE%A03%CE%96-%CE%91%CE%A8%CE%9E",
+        "rule_ada": "6ΜΥΤ46ΜΠ3Ζ-ΑΨΞ"
+      },
+      {
+        "rule_type": "Εγκύκλιος",
+        "rule_decision_number": "2205",
+        "rule_decision_year": "2021",
+        "rule_description": "Επικαιροποίηση του κανονιστικού πλαισίου που ρυθμίζει την έκδοση αποδεικτικού ενημερότητας και βεβαίωσης οφειλής κατ’ άρθρο 12 του Κ.Φ.Δ. – Παροχή διευκρινίσεων και οδηγιών.",
+        "rule_ada": "ΨΦ1Ω46ΜΠ3Ζ-2Γ6",
+        "rule_url": "https://diavgeia.gov.gr/doc/%CE%A8%CE%A61%CE%A946%CE%9C%CE%A03%CE%96-2%CE%936"
+      },
+      {
+        "rule_type": "Εγκύκλιος",
+        "rule_decision_number": "1118",
+        "rule_decision_year": "2016",
+        "rule_description": "Εγκύκλιος του Γενικού Γραμματέα Δημοσίων Εσόδων ΠΟΛ 1118/2016",
+        "rule_ada": "ΨΕ6ΣΗ-007",
+        "rule_url": "https://diavgeia.gov.gr/doc/%CE%A8%CE%956%CE%A3%CE%97-007"
+      },
+      {
+        "rule_type": "Εγκύκλιος",
+        "rule_decision_number": "1141",
+        "rule_decision_year": "2016",
+        "rule_description": "Διευκρινίσεις για τη διαδικασία χορήγησης αποδεικτικού ενημερότητας/ βεβαίωσης οφειλής",
+        "rule_ada": "6143Η-ΣΛΛ",
+        "rule_url": "https://diavgeia.gov.gr/doc/6143%CE%97-%CE%A3%CE%9B%CE%9B"
+      },
+      {
+        "rule_type": "Εγκύκλιος",
+        "rule_decision_number": "1124",
+        "rule_decision_year": "2014",
+        "rule_description": "Eπικαιροποιημένες Αποφάσεις περί αποδεικηικού ενημερότητας και βεβαίωσης οφειλής άρθρου 12 του Κ.Φ.Δ.",
+        "rule_ada": "ΒΙΦ1Η-Φ9Σ",
+        "rule_url": "https://diavgeia.gov.gr/doc/%CE%92%CE%99%CE%A61%CE%97-%CE%A69%CE%A3"
+      }
+    ],
+    "process_steps_digital": [
+      {
+        "step_digital_num_id": 1,
+        "step_digital_exit": false,
+        "step_digital_child": false,
+        "step_digital_title": "Αυθεντικοποίηση χρήστη με κωδικούς Taxisnet",
+        "step_digital_official": "Λογισμικό άλλου φορέα",
+        "step_digital_co_org": 66797,
+        "step_digital_implementation": "Είσοδος δεδομένων σε λογισμικό",
+        "step_digital_url": "https://www.gov.gr/ipiresies/periousia-kai-phorologia/phorologia-politon/apodeiktiko-phorologikes-enemerotetas",
+        "step_digital_duration_min": "PT10S",
+        "step_digital_duration_max": "PT20S",
+        "step_digital_description": "Ο χρήστης εισάγει τους προσωπικούς κωδικούς που διαθέτει στο Taxisnet."
+      },
+      {
+        "step_digital_num_id": 2,
+        "step_digital_exit": false,
+        "step_digital_child": true,
+        "step_digital_previous_child_selector": "1",
+        "step_digital_previous_child": 1,
+        "step_digital_title": "Επιτυχής αυθεντικοποίηση χρήστη",
+        "step_digital_official": "gov.gr",
+        "step_digital_implementation": "Αλληλεπίδραση λογισμικών (διαλειτουργικότητα)",
+        "step_digital_duration_min": "PT10S",
+        "step_digital_duration_max": "PT20S",
+        "step_digital_description": "Εισάγεται επιτυχώς το ζεύγος κωδικών Taxisnet."
+      },
+      {
+        "step_digital_num_id": 3,
+        "step_digital_exit": true,
+        "step_digital_child": true,
+        "step_digital_previous_child_selector": "1",
+        "step_digital_previous_child": 1,
+        "step_digital_title": "Αποτυχία αυθεντικοποίησης χρήστη",
+        "step_digital_official": "gov.gr",
+        "step_digital_implementation": "Αλληλεπίδραση λογισμικών (διαλειτουργικότητα)",
+        "step_digital_duration_min": "PT10S",
+        "step_digital_duration_max": "PT20S",
+        "step_digital_description": "Σε περίπτωση λανθασμένης καταχώρισης του ζεύγους των κωδικών."
+      },
+      {
+        "step_digital_num_id": 4,
+        "step_digital_exit": false,
+        "step_digital_child": false,
+        "step_digital_title": "Συναίνεση χρήστη για πρόσβαση σε προσωπικά δεδομένα του μητρώου φυσικών προσώπων",
+        "step_digital_official": "gov.gr",
+        "step_digital_implementation": "Είσοδος δεδομένων σε λογισμικό",
+        "step_digital_duration_min": "PT5S",
+        "step_digital_duration_max": "PT7S",
+        "step_digital_description": "Συναινεί ο χρήστης να χρησιμοποιήσει η εφαρμογή τα παρακάτω προσωπικά του δεδομένα: ΑΦΜ, Όνοµα, Επώνυµο, Πατρώνυµο, Μητρώνυµο, Έτος Γέννησης.",
+        "step_digital_note": "Με σκοπό την ηλεκτρονική ταυτοποίησή του χρήστη, η εφαρµογή \"Εφαρμογές Ενιαίας Ψηφιακής Πύλης\" ζητά συναίνεση για να αποκτήσει πρόσβαση στα βασικά στοιχεία Μητρώου φυσικών προσώπων του ΥΠΟΥΡΓΕΙΟΥ ΟΙΚΟΝΟΜΙΚΩΝ που διαχειρίζεται η Α.Α.∆.Ε."
+      },
+      {
+        "step_digital_num_id": 5,
+        "step_digital_exit": false,
+        "step_digital_child": false,
+        "step_digital_title": "Έναρξη αίτησης",
+        "step_digital_official": "Λογισμικό θεσμικού φορέα",
+        "step_digital_implementation": "Είσοδος δεδομένων σε λογισμικό",
+        "step_digital_duration_min": "PT1S",
+        "step_digital_duration_max": "PT2S",
+        "step_digital_description": "Ο πολίτης επιλέγει το κουμπί \"Συνέχεια\" για να εμφανιστεί η φόρμα των στοιχείων του"
+      },
+      {
+        "step_digital_num_id": 6,
+        "step_digital_exit": false,
+        "step_digital_child": false,
+        "step_digital_title": "Συμπλήρωση πεδίων",
+        "step_digital_official": "Λογισμικό θεσμικού φορέα",
+        "step_digital_implementation": "Είσοδος δεδομένων σε λογισμικό",
+        "step_digital_duration_min": "PT30S",
+        "step_digital_duration_max": "PT1M",
+        "step_digital_description": "Ο πολίτης πρέπει να συμπληρώσει τα 2 υποχρεωτικά πεδία που είναι: \n- η \"Αιτία έκδοσης\" που αποτελείται από 4 συγκεκριμένες επιλογές για να διαλέξει τη μία. Κατά την επιλογή μίας από αυτές την \"είσπραξη χρημάτων από φορείς του δημοσίου τομέα (πλην κεντρικής διοίκησης)\" ενεργοποιείται και ένα επιπλέον πεδίο το \"Στοιχεία Τίτλου Πληρωμής\" που είναι πεδίο ελεύθερου κειμένου\n- ο \"Φορέας που θα κατατεθεί\" που είναι πεδίο ελεύθερου κειμένου"
+      },
+      {
+        "step_digital_num_id": 7,
+        "step_digital_exit": true,
+        "step_digital_child": false,
+        "step_digital_title": "Υποβολή αίτησης και εκτύπωση φορολογικής ενημερότητας",
+        "step_digital_official": "Λογισμικό εκτελεστικού φορέα",
+        "step_digital_implementation": "Ενέργεια λογισμικού",
+        "step_digital_duration_min": "PT2S",
+        "step_digital_duration_max": "PT3S",
+        "step_digital_description": "Δίνονται στον πολίτη οι επιλογές:\n- να εκτυπώσει και να μεταφορτώσει τοπικά το αρχείο της παραγόμενης φορολογικής ενημερότητας.\n- να επιστρέψει να επαναλάβει την διαδικασία με άλλο συνδυασμό δεδομένων (άλλη χρήση).",
+        "step_digital_note": "Σε περίπτωση που δεν είναι δυνατή η χορήγηση αποδεικτικού ενημερότητας μέσω διαδικτύου τότε η εφαρμογή παρουσιάζει το μήνυμα: “Ο φορολογούμενος χρειάζεται να απευθυνθεί σε ΔΟΥ."
+      }
+    ],
+    "process_useful_links": [
+      {
+        "useful_link_title": "Επικοινωνία",
+        "useful_link_url": "https://www.aade.gr/menoy/aade/epikoinonia"
+      },
+      {
+        "useful_link_title": "Συχνές ερωτήσεις",
+        "useful_link_url": "https://aade.gr/sites/default/files/2019-09/FAQS_ekdosi_apodeiktikou_enimerotitas.pdf"
+      },
+      {
+        "useful_link_title": "Εγκυρότητα αποδεικτικού φορολογικής ενημερότητας",
+        "useful_link_url": "https://www.gov.gr/ipiresies/epikheirematike-drasterioteta/elegkhos-egkurotetas-phorologikon-kai-asphalistikon-stoikheion/egkuroteta-apodeiktikou-phorologikes-enemerotetas"
+      },
+      {
+        "useful_link_title": "Ηλεκτρονικό αίτημα φορολογίας σε Δημόσια Οικονομική Υπηρεσία (ΔΟΥ)",
+        "useful_link_url": "https://www.gov.gr/ipiresies/epikheirematike-drasterioteta/phorologia-epikheireseon/elektroniko-aitema-phorologias-se-demosia-oikonomike-uperesia-dou"
+      }
+    ],
+    "process_provision_digital_locations": [
+      {
+        "provision_digital_location_title": "Ενιαία Ψηφιακή Πύλη δημόσιας διοίκησης (ΕΨΠ - gov.gr)",
+        "provision_digital_location_url": "https://www.gov.gr/el/services/1001086/apodeiktiko-phorologikes-enemerotetas"
+      }
+    ],
+    "glance": {
+      "service_points": {
+        "title": "Σημεία εξυπηρέτησης",
+        "value": [
+          {
+            "title": "Επιχειρησιακή Μονάδα Είσπραξης (Ε.Μ.ΕΙΣ )",
+            "url": "https://www.aade.gr/taxonomy/term/29195"
+          },
+          {
+            "title": "Κέντρα Βεβαίωσης και Είσπραξης (ΚΕ.Β.ΕΙΣ)",
+            "url": "https://www.aade.gr/epikoinonia/anazitisi-stoiheion-epikoinonias-ypiresion-aade/kentra-bebaiosis-kai-eispraxis-kebeis"
+          },
+          {
+            "title": "ΔΟΥ",
+            "url": "https://www.aade.gr/epikoinonia/plirofories-doy"
+          },
+          {
+            "title": "Κατά τόπους Γραφεία Εξυπηρέτησης Φορολογούμενων"
+          }
+        ]
+      },
+      "digital_service_points": {
+        "title": "Ψηφιακά σημεία παροχής",
+        "value": [
+          {
+            "title": "Ενιαία Ψηφιακή Πύλη δημόσιας διοίκησης (ΕΨΠ - gov.gr)",
+            "url": "https://www.gov.gr/el/services/1001086/apodeiktiko-phorologikes-enemerotetas"
+          }
+        ]
+      },
+      "evidences": {
+        "title": "Αριθμός δικαιολογητικών",
+        "value": "Δεν απαιτούνται"
+      },
+      "cost": {
+        "title": "Κόστος",
+        "value": "Παρέχεται χωρίς κόστος"
+      },
+      "description": {
+        "title": "Περιγραφή",
+        "value": "Η διαδικασία αφορά στην έκδοση αποδεικτικού φορολογικής ενημερότητας για χρέη προς το Δημόσιο."
+      },
+      "duration_steps_digital": {
+        "title": "Εκτιμώμενος χρόνος (ψηφιακά)",
+        "value": "2 λεπτά"
+      }
+    }
+  },
+  "ns": "ΔΔ",
+  "title": {
+    "el": "Αποδεικτικό φορολογικής ενημερότητας",
+    "en": "Certificate of no outstanding tax debts"
+  },
+  "id": "439993",
+  "uuid": "39e2d21a-0ee2-415f-8600-76b499ccf8d7",
+  "url": "https://id.mitos.gov.gr/439993",
+  "last_updated": "2026-09-29T14:15:53+03:00"
+}

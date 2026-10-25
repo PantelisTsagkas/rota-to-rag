@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Ρώτα το: οι δημόσιες υπηρεσίες, απλά</title>
+<meta name="description" content="Ρωτήστε στα ελληνικά για μια διαδικασία του Δημοσίου. Οι απαντήσεις βασίζονται στο Μητρώο Μίτος.">
+<meta name="theme-color" content="#F3F6FA">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/commissioner-greek.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+  <header class="bar">
+    <button type="button" class="icon-button" id="back" aria-label="Αρχική" hidden>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    </button>
+    <div class="brand">
+      <svg class="logo" width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="26" r="16" fill="#0559DF"></circle><path d="M10 37.5 5.5 46.5l11-4.4z" fill="#0559DF" stroke="#0559DF" stroke-width="2" stroke-linejoin="round"></path><path d="M15.3 21.3a5.4 5.4 0 1 1 8.3 4.6c-1.8 1.1-2.6 2.2-2.6 4" fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round"></path><circle cx="21" cy="35.3" r="2.3" fill="#FFFFFF"></circle><g stroke="#1C83FD" stroke-width="2.8" stroke-linecap="round"><path d="M34 7.5 35.8 2.8"></path><path d="M38.2 12 42.8 8.6"></path><path d="M40.2 17.6H45.6"></path></g></svg>
+      <span class="brand-text">
+        <span class="brand-name">Ρώτα το</span>
+        <span class="tagline">Οι δημόσιες υπηρεσίες, απλά.</span>
+      </span>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="home">
+      <h1>Τι θέλετε να κάνετε;</h1>
+      <p class="lead">Γράψτε με δικά σας λόγια. Θα σας πω τι χαρτιά χρειάζεστε, πόσο κοστίζει και πού να πάτε.</p>
+
+      <form class="ask" id="home-form" novalidate>
+        <label for="question">Η ερώτησή σας</label>
+        <div class="field">
+          <textarea id="question" name="question" rows="2" maxlength="300" placeholder="π.χ. τι χρειάζομαι για να βγάλω διαβατήριο;" autocomplete="off"></textarea>
+          <button type="submit" class="send" aria-label="Αποστολή ερώτησης">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+        <p class="form-error" role="alert" hidden></p>
+      </form>
+
+      <section class="examples" aria-labelledby="examples-title">
+        <h2 id="examples-title">Συχνές ερωτήσεις</h2>
+        <div class="chips">
+          <button type="button" class="chip" data-question="τι χρειάζομαι για να βγάλω διαβατήριο">Βγάζω διαβατήριο</button>
+          <button type="button" class="chip" data-question="πώς βγάζω φορολογική ενημερότητα">Φορολογική ενημερότητα</button>
+          <button type="button" class="chip" data-question="έχασα την ταυτότητά μου, τι κάνω">Έχασα την ταυτότητα</button>
+          <button type="button" class="chip" data-question="θέλω πιστοποιητικό γέννησης">Πιστοποιητικό γέννησης</button>
+        </div>
+      </section>
+
+      <div class="notice">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A4310" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        <p>Μη γράφετε ΑΦΜ, ΑΜΚΑ ή άλλα προσωπικά στοιχεία. Δεν τα χρειάζομαι, και οι ερωτήσεις δεν αποθηκεύονται.</p>
+      </div>
+    </section>
+
+    <section id="result" class="result" hidden>
+      <div class="bubble" id="asked"></div>
+      <div id="answer" aria-live="polite"></div>
+
+      <form class="ask follow" id="follow-form" novalidate>
+        <label for="follow-question" class="visually-hidden">Νέα ερώτηση</label>
+        <div class="field">
+          <textarea id="follow-question" name="question" rows="1" maxlength="300" placeholder="Κάντε νέα ερώτηση" autocomplete="off"></textarea>
+          <button type="submit" class="send" aria-label="Αποστολή ερώτησης">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+          </button>
+        </div>
+        <p class="form-error" role="alert" hidden></p>
+        <p class="hint">Κάθε ερώτηση απαντιέται ξεχωριστά: γράψτε την ολόκληρη.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Το «Ρώτα το» είναι ανεξάρτητη εφαρμογή, όχι επίσημη υπηρεσία του Δημοσίου. Οι απαντήσεις βασίζονται στο Εθνικό Μητρώο Διοικητικών Διαδικασιών <a href="https://mitos.gov.gr" target="_blank" rel="noopener noreferrer">«Μίτος»<span class="visually-hidden"> (ανοίγει σε νέα καρτέλα)</span></a> (CC BY-SA 4.0).
+    <details class="privacy">
+      <summary>Απόρρητο</summary>
+      <p>Η ερώτησή σας στέλνεται κρυπτογραφημένη στην εφαρμογή, που λειτουργεί στο AWS. Την επεξεργάζονται τρία μοντέλα τεχνητής νοημοσύνης (Cohere, Claude Haiku και Claude Sonnet) μέσω του Amazon Bedrock, μόνο σε κέντρα δεδομένων του AWS στην Ευρωπαϊκή Ένωση.</p>
+      <p>Δεν αποθηκεύουμε την ερώτησή σας πουθενά. Το AWS δεν την κρατά, δεν τη χρησιμοποιεί για την εκπαίδευση μοντέλων και δεν τη μοιράζεται με τις εταιρείες που φτιάχνουν τα μοντέλα, οπότε η Anthropic και η Cohere δεν τη βλέπουν ποτέ.</p>
+      <p>Η διεύθυνση IP σας κρατιέται μόνο σε μη αναγνώσιμη μορφή (hash) για λίγα λεπτά, για να ισχύει το όριο ερωτήσεων, και μετά διαγράφεται αυτόματα. Αν αξιολογήσετε μια απάντηση, κρατάμε μόνο το «Ναι» ή «Όχι» και τον λόγο που επιλέξατε, χωρίς την ερώτηση, για 90 ημέρες.</p>
+      <p>Μη γράφετε ΑΦΜ, ΑΜΚΑ ή άλλα προσωπικά στοιχεία. Η εφαρμογή δεν τα χρειάζεται.</p>
+    </details>
+  </footer>
+</div>
+</body>
+</html>

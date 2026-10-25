@@ -1,0 +1,370 @@
+{
+  "metadata": {
+    "process": {
+      "status": "Υπό μεταβολή θεσμικού πλαισίου",
+      "official_title": "Αντίγραφο Ποινικού Μητρώου",
+      "alternative_titles": [
+        "Ποινικό μητρώο"
+      ],
+      "description": "Η διαδικασία αφορά στην έκδοση Αντιγράφου Ποινικού Μητρώου, η διάρκεια ισχύος του αντιγράφου είναι 3μηνη.",
+      "org_owner_is_private": false,
+      "org_owner": 99487,
+      "provision_org_owner_directory": [
+        746146,
+        522929
+      ],
+      "provision_org_group_remote": [
+        8256
+      ],
+      "provision_org_group_remote_urls": "https://www.gov.gr/ipiresies/polites-kai-kathemerinoteta/ex-apostaseos-exuperetese-politon/exuperetese-me-telediaskepse-apo-kentro-exupereteses-politon-kep",
+      "provision_org_group": [
+        6164,
+        8210,
+        9916
+      ],
+      "remarks": "Η ηλεκτρονική υποβολή αίτησης και παραλαβή αντιγράφου Ποινικού Μητρώου πραγματοποιείται μέσω της πύλης https://www.ncris.gov.gr του έργου \"Εθνικό Ποινικό Μητρώο\" ή μέσω του gov.gr (https://www.gov.gr/upourgeia/upourgeio-dikaiosunes/dikaiosunes/antigrapho-poinikou-metroou).\nΥποβολή της αίτησης και παραλαβή αντιγράφου Ποινικού Μητρώου με φυσική παρουσία γίνεται μέσω των ΚΕΠ της χώρας, των Εισαγγελιών Πρωτοδικών της χώρας (Τμήμα Ποινικού Μητρώου) και την Κεντρική Υπηρεσία του Υπουργείου Δικαιοσύνης (Τμήμα Ποινικού Μητρώου). \nΕναλλακτικά, ο ενδιαφερόμενος μπορεί να κλείσει ψηφιακό ραντεβού στο myKEPlive για να εξυπηρετηθεί από υπάλληλο των Κέντρων Εξυπηρέτησης Πολιτών (ΚΕΠ) μέσω τηλεδιάσκεψης.",
+      "estimated_implementation_duration_min": "P2D",
+      "estimated_implementation_duration_max": "P3D",
+      "evidence_identification_type": [
+        "Ταυτοποίηση με κωδικούς TAXISnet",
+        "Ταυτοποιητικό έγγραφο"
+      ],
+      "type": "Εξωστρεφής",
+      "trigger": [
+        "Αιτούμενη"
+      ],
+      "trigger_type": [
+        "Αίτηση (έντυπο)",
+        "Αίτηση (ψηφιακά)",
+        "Βιντεοκλήση"
+      ],
+      "usage": [
+        "Δικαιολογητικό",
+        "Ψηφιακό δικαιολογητικό"
+      ],
+      "output_type": [
+        "Διοικητική πράξη",
+        "Ενημέρωση μέσω θυρίδας gov.gr",
+        "Παραγωγή εγγράφου"
+      ],
+      "delivery_type": [
+        "Ενημέρωση/Ανάρτηση εγγράφου μέσω Πληροφοριακού Συστήματος",
+        "Θυρίδες gov.gr"
+      ],
+      "validity_duration_set": "Καθορισμένη",
+      "validity_duration": "P3M",
+      "provided_to": [
+        "Πολίτες"
+      ],
+      "tax_type": [
+        "Αιτήσεις",
+        "Ανανεώσεις",
+        "Μητρώα"
+      ],
+      "life_events": [
+        "Ποινικό Μητρώο",
+        "Ψηφιακά έγγραφα gov.gr"
+      ],
+      "sdg_resource": "Άλλο",
+      "sdg_resource_other": "Εισαγγελέας  Ποινικού Μητρώου",
+      "total_duration_steps_min": "P1DT3M",
+      "total_duration_steps_max": "P3DT13M30S",
+      "total_duration_steps_digital_min": "PT0S",
+      "total_duration_steps_digital_max": "PT0S",
+      "evidence_ex_officio_total_number": 1,
+      "evidence_alternative_total_number": "0",
+      "evidence_prerequisite_total_number": 1,
+      "source": [
+        "EU-GO (υποστηρικτική)"
+      ],
+      "nace_codes": [
+        "84.23"
+      ],
+      "govgr_codes": [
+        1000416
+      ],
+      "application_type": "Αίτηση",
+      "application_submission_type": [
+        "Κατάθεση από τον αιτούντα (δια ζώσης ή ταχυδρομικά)",
+        "Κατάθεση από τον αιτούντα (ψηφιακή)"
+      ],
+      "application_owner": [
+        "Φυσικά πρόσωπα"
+      ],
+      "application_description": "Υποβολή Αίτησης, απαραίτητα έγγραφα ταυτοποίησης και εξουσιοδότηση στην περίπτωση υποβολής της αίτησης από τρίτο πρόσωπο, επικυρωμένη από δημόσια διοικητική αρχή.",
+      "application_related_url": "https://www.gov.gr/ipiresies/dikaiosune/poiniko-metroo/antigrapho-poinikou-metroou"
+    },
+    "process_conditions": [
+      {
+        "conditions_num_id": 1,
+        "conditions_alternative": false,
+        "conditions_type": "Κατοχής κωδικών για είσοδο σε λογισμικό",
+        "conditions_name": "Ο/Η αιτών/ούσα να είναι κάτοχος κωδικών διαπιστευτηρίων TAXISnet.",
+        "conditions_url": "https://www.gov.gr/arxes/anexartete-arkhe-demosion-esodon-aade/anexartete-arkhe-demosion-esodon-aade/elektronike-eggraphe-diakheirise-kodikon-taxisnet"
+      },
+      {
+        "conditions_num_id": 2,
+        "conditions_alternative": true,
+        "conditions_alternative_of_selector": "1",
+        "conditions_alternative_of": 1,
+        "conditions_type": "Κατοχής κωδικών για είσοδο σε λογισμικό",
+        "conditions_name": "Ο/Η αιτών/ούσα να είναι κάτοχος κωδικών της πύλης https://www.ncris.gov.gr του έργου \"Εθνικό Ποινικό Μητρώο\".",
+        "conditions_url": "https://www.ncris.gov.gr/portal/page/portal/epm/epm_main/ManageUser"
+      },
+      {
+        "conditions_num_id": 3,
+        "conditions_alternative": false,
+        "conditions_type": "Ταυτοπροσωπίας",
+        "conditions_name": "Τα στοιχεία της ταυτότητας του αιτούντος/σας αναγράφονται κατά τον τρόπο αναγραφής τους στο δελτίο αστυνομικής ταυτότητας ή του διαβατηρίου τους. Στις περιπτώσεις κατά τις οποίες οι εθνικές γλώσσες των χωρών προέλευσης των αιτούντων δεν είναι λατινογενείς, τα στοιχεία της ταυτότητας τους πρέπει να συμπληρώνονται και με λατινικούς χαρακτήρες."
+      },
+      {
+        "conditions_num_id": 4,
+        "conditions_alternative": false,
+        "conditions_type": "Διοικητικές",
+        "conditions_name": "Το δελτίο αστυνομικής ταυτότητας ή το διαβατήριο είναι απολύτως απαραίτητο ταυτοποιητικό στοιχείο τόσο κατά το χρόνο υποβολής της αίτησης, όσο και κατά το χρόνο παραλαβής του απαιτούμενου αντιγράφου ποινικού μητρώου (ενέργεια στο γκισέ)."
+      },
+      {
+        "conditions_num_id": 5,
+        "conditions_alternative": false,
+        "conditions_type": "Διοικητικές",
+        "conditions_name": "Τα αντίγραφα ποινικού μητρώου δικαστικής χρήσης δεν χορηγούνται στους αιτούντες, αλλά διαβιβάζονται υπηρεσιακώς στην αρμόδια δημόσια αρχή."
+      }
+    ],
+    "process_evidences": [
+      {
+        "evidence_num_id": 1,
+        "evidence_type": 1474,
+        "evidence_is_under_prerequisite": false,
+        "evidence_alternative": false,
+        "evidence_submission_type": [
+          "Αυτεπάγγελτη (ψηφιακά)",
+          "Επίδειξη από τον αιτούντα",
+          "Κατάθεση από τον αιτούντα (δια ζώσης ή ταχυδρομικά)",
+          "Κατάθεση από τον αιτούντα (ψηφιακή)"
+        ],
+        "evidence_owner": [
+          "Λογισμικό μέσω διαλειτουργικότητας",
+          "Φυσικά πρόσωπα"
+        ],
+        "evidence_description": "Δελτίου Ταυτότητας/Διαβατηρίου του ενδιαφερομένου ή και του εκπροσώπου",
+        "evidence_note": "Η αναζήτηση του αντιγράφου Δελτίου Ταυτότητας διενεργείται αποκλειστικά από τους αρμόδιους υπαλλήλους των φορέων διεκπεραίωσης υποθέσεων με τη χρήση της ηλεκτρονικής υπηρεσίας «Ψηφιακό αντίγραφο δελτίου ταυτότητας» στη διαδρομή: https://id-copy.services.gov.gr/.\n\nΕάν ο ενδιαφερόμενος δεν είναι Έλληνας υπήκοος και είναι υπήκοος άλλου κράτους – μέλους της Ε.Ε. επίδειξη ταυτότητας ή διαβατηρίου Πολίτη κράτους – μέλους Ε.Ε.. Ενώ για υπήκοο τρίτης χώρας απαιτείται επίδειξη διαβατηρίου ή άλλου εγγράφου, βάσει του οποίου επιτρέπεται η είσοδός του στη χώρα μας ή εγγράφου που έχει εκδώσει αρμόδια ελληνική αρχή και αφορά την Άδεια Διαμονής ή τη Βεβαίωση κατάθεσης δικαιολογητικών για τη χορήγηση/ανανέωση Άδειας Διαμονής.\n\nΑπό τα έγγραφα αυτά πρέπει να προκύπτει η ταυτότητα του προσώπου και η ηλικία του. Δεν απαιτείται στην ψηφιακή διαδικασία."
+      },
+      {
+        "evidence_num_id": 2,
+        "evidence_type": 3070,
+        "evidence_is_under_prerequisite": true,
+        "evidence_prerequisite": [
+          "Διοικητικές"
+        ],
+        "evidence_alternative": false,
+        "evidence_submission_type": [
+          "Επίδειξη από τον αιτούντα",
+          "Κατάθεση από τον αιτούντα (δια ζώσης ή ταχυδρομικά)",
+          "Κατάθεση από τον αιτούντα (ψηφιακή)"
+        ],
+        "evidence_owner": [
+          "Φυσικά πρόσωπα"
+        ],
+        "evidence_description": "Εξουσιοδότηση ή συμβολαιογραφικό πληρεξούσιο τρίτου προσώπου από τον άμεσα ενδιαφερόμενο σε περίπτωση που ο Αιτών δεν είναι διάδικος/παραστάς Δικηγόρος.",
+        "evidence_related_process": [
+          {
+            "id": "621658",
+            "title": {
+              "el": "Εξουσιοδότηση και ηλεκτρονική εξουσιοδότηση",
+              "en": "Authorisation and Electronic Authorisation"
+            },
+            "ns": "ΔΔ",
+            "last_updated": "2026-09-25T12:08:22+03:00"
+          }
+        ],
+        "evidence_related_url": "https://www.gov.gr/ipiresies/polites-kai-kathemerinoteta/psephiaka-eggrapha-gov-gr/ekdose-exousiodoteses",
+        "evidence_note": "Εξουσιοδότηση ή συμβολαιογραφικό πληρεξούσιο από τον/την άμεσα ενδιαφερόμενο/η προς το πρόσωπο που εξουσιοδοτεί για να ενεργήσει για λογαριασμό του/της για την διεκπεραίωση της συγκεκριμένης διαδικασίας, που ισχύει και για τις επιμέρους ενέργειες οι οποίες ενδεχομένως απαιτούνται, υπό την προϋπόθεση ότι οι ενέργειες αυτές περιγράφονται επαρκώς στο σώμα της εξουσιοδότησης ή του πληρεξουσίου."
+      }
+    ],
+    "process_rules": [
+      {
+        "rule_type": "Νόμος",
+        "rule_decision_number": "4620",
+        "rule_decision_year": "2019",
+        "rule_article": "568-575",
+        "rule_description": "Κώδικας Ποινικής Δικονομίας",
+        "rule_gazette_doc_number": 96,
+        "rule_gazette_doc_issue": "Α",
+        "rule_url": "https://api.et.gr/apiFEK/1/2019/96/pdf"
+      },
+      {
+        "rule_type": "Προεδρικό Διάταγμα",
+        "rule_decision_number": "35",
+        "rule_decision_year": "2015",
+        "rule_description": "Οργάνωση και λειτουργία υπηρεσιών Ποινικού Μητρώου",
+        "rule_gazette_doc_number": 56,
+        "rule_gazette_doc_issue": "Α",
+        "rule_url": "https://api.et.gr/apiLAW/2/2015/35/pdf"
+      },
+      {
+        "rule_type": "Απόφαση",
+        "rule_decision_number": "ΔΙΑΔΠ/Α1/15016",
+        "rule_decision_year": "2002",
+        "rule_description": "Καθορισμός διοικητικών διαδικασιών αρμοδιότητας Υπουργείου Δικαιοσύνης και των αντίστοιχων εντύπων τους που διεκπεραιώνονται και μέσω των Κέντρων Εξυπηρέτησης Πολιτών (Κ.Ε.Π.)",
+        "rule_gazette_doc_number": 1049,
+        "rule_url": "https://api.et.gr/apiFEK/2/2002/1049/pdf"
+      }
+    ],
+    "process_steps": [
+      {
+        "step_num_id": 1,
+        "step_exit": false,
+        "step_child": false,
+        "step_title": "Εκκίνηση της διαδικασίας",
+        "step_duration_min": "PT0S",
+        "step_duration_max": "PT0S"
+      },
+      {
+        "step_num_id": 2,
+        "step_exit": false,
+        "step_child": true,
+        "step_previous_child_selector": "1",
+        "step_previous_child": 1,
+        "step_title": "Ψηφιακή Υποβολή της Αίτησης",
+        "step_official": "Λογισμικό",
+        "step_implementation": "Ενέργεια μέσω λογισμικού",
+        "step_duration_min": "PT1M",
+        "step_duration_max": "PT5M",
+        "step_description": "Υποβολή αίτησης μέσω του https://www.ncris.gov.gr και κωδικούς που δημιουργεί ο αιτών ή μέσω του https://www.gov.gr και κωδικούς TaxisNet."
+      },
+      {
+        "step_num_id": 3,
+        "step_exit": false,
+        "step_child": true,
+        "step_previous_child_selector": "1",
+        "step_previous_child": 1,
+        "step_title": "Υποβολή Αίτησης με φυσικό τρόπο",
+        "step_official": "Αρμόδιο Τμήμα",
+        "step_implementation": "Χειροκίνητη ενέργεια",
+        "step_duration_min": "PT1M",
+        "step_duration_max": "PT10M",
+        "step_description": "Υποβολή αίτησης στο γκισέ από τον αιτούντα (φυσικό ή νομικό πρόσωπο ή τρίτο που αποδεικνύει ότι έχει έννομο συμφέρον)."
+      },
+      {
+        "step_num_id": 4,
+        "step_exit": false,
+        "step_child": false,
+        "step_title": "Έλεγχος έννομου συμφέροντος / Πρωτοκόλληση αίτησης",
+        "step_official": "Αρμόδιο Τμήμα",
+        "step_implementation": "Έλεγχος",
+        "step_duration_min": "PT1M",
+        "step_duration_max": "PT5M",
+        "step_description": "Έλεγχος έννομου συμφέροντος / Πρωτοκόλληση αίτησης μέσω Πληροφοριακού Συστήματος \"Εθνικό Ποινικό Μητρώο\"."
+      },
+      {
+        "step_num_id": 5,
+        "step_exit": false,
+        "step_child": false,
+        "step_title": "Δρομολόγηση αίτησης",
+        "step_official": "Αρμόδιο Τμήμα",
+        "step_implementation": "Ενέργεια μέσω λογισμικού",
+        "step_duration_min": "PT1M",
+        "step_duration_max": "PT1M",
+        "step_description": "Δρομολόγηση σε αρμόδιο υπάλληλο για επεξεργασία."
+      },
+      {
+        "step_num_id": 6,
+        "step_exit": true,
+        "step_child": false,
+        "step_title": "Έκδοση Αντιγράφου Ποινικού Μητρώου",
+        "step_official": "Λογισμικό",
+        "step_implementation": "Ενέργεια μέσω λογισμικού",
+        "step_duration_min": "P1D",
+        "step_duration_max": "P3D",
+        "step_description": "Έκδοση αντιγράφου μέσω Πληροφοριακού Συστήματος μετά από έλεγχο αρμόδιου χρήστη.",
+        "step_note": "Με την έκδοση του αντιγράφου Ποινικού Μητρώου, ο αιτών λαμβάνει SMS."
+      }
+    ],
+    "process_useful_links": [
+      {
+        "useful_link_title": "Συχνές ερωτήσεις",
+        "useful_link_url": "http://www.ncris.gov.gr/portal/page/portal/epm/SERVICES/useful_questions"
+      },
+      {
+        "useful_link_title": "Οδηγίες εγγραφής χρήστη",
+        "useful_link_url": "http://www.ncris.gov.gr/portal/page/portal/epm/SERVICES/user_instructions"
+      },
+      {
+        "useful_link_title": "Εφαρμογή επαλήθευσης αντιγράφου Ποινικού Μητρώου",
+        "useful_link_url": "http://www.ncris.gov.gr/portal/page/portal/epm/validateapm"
+      }
+    ],
+    "process_provision_digital_locations": [
+      {
+        "provision_digital_location_title": "Ενιαία Ψηφιακή Πύλη δημόσιας διοίκησης (ΕΨΠ - gov.gr)",
+        "provision_digital_location_url": "https://www.gov.gr/el/services/1000416/antigrapho-poinikou-metroou"
+      }
+    ],
+    "glance": {
+      "service_points": {
+        "title": "Σημεία εξυπηρέτησης",
+        "value": [
+          {
+            "title": "Εισαγγελίες"
+          },
+          {
+            "title": "ΚΕΠ",
+            "url": "https://www.kep.gov.gr/"
+          },
+          {
+            "title": "Α’ ΤΜΗΜΑ ΠΟΙΝΙΚΟΥ ΜΗΤΡΩΟΥ (ΤΜΗΜΑ ΕΚΔΟΣΗΣ)"
+          },
+          {
+            "title": "ΔΙΕΥΘΥΝΣΗ ΔΙΕΘΝΟΥΣ ΝΟΜΙΚΗΣ ΣΥΝΕΡΓΑΣΙΑΣ"
+          },
+          {
+            "title": "ΥΠΟΥΡΓΕΙΟ ΔΙΚΑΙΟΣΥΝΗΣ"
+          }
+        ]
+      },
+      "digital_service_points": {
+        "title": "Ψηφιακά σημεία παροχής",
+        "value": [
+          {
+            "title": "Ενιαία Ψηφιακή Πύλη δημόσιας διοίκησης (ΕΨΠ - gov.gr)",
+            "url": "https://www.gov.gr/el/services/1000416/antigrapho-poinikou-metroou"
+          }
+        ]
+      },
+      "remote_service_points": {
+        "title": "Eξ αποστάσεως σημεία εξυπηρέτησης",
+        "value": [
+          {
+            "title": "myKEPlive",
+            "url": "https://www.gov.gr/ipiresies/polites-kai-kathemerinoteta/ex-apostaseos-exuperetese-politon/exuperetese-me-telediaskepse-apo-kentro-exupereteses-politon-kep"
+          }
+        ]
+      },
+      "evidences": {
+        "title": "Αριθμός δικαιολογητικών",
+        "value": "0 έως 1 + (1)"
+      },
+      "cost": {
+        "title": "Κόστος",
+        "value": "Παρέχεται χωρίς κόστος"
+      },
+      "estimated_time": {
+        "title": "Εκτιμώμενος χρόνος",
+        "value": "2 έως 3 ημέρες"
+      },
+      "description": {
+        "title": "Περιγραφή",
+        "value": "Η διαδικασία αφορά στην έκδοση Αντιγράφου Ποινικού Μητρώου, η διάρκεια ισχύος του αντιγράφου είναι 3μηνη."
+      }
+    }
+  },
+  "ns": "ΔΔ",
+  "title": {
+    "el": "Αντίγραφο Ποινικού Μητρώου",
+    "en": "Copy of Criminal Record"
+  },
+  "id": "977354",
+  "uuid": "9773e5aa-4601-4594-a414-3d51b8dab4b2",
+  "url": "https://id.mitos.gov.gr/977354",
+  "last_updated": "2026-10-05T13:12:46+03:00"
+}

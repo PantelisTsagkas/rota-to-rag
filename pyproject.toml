@@ -1,0 +1,43 @@
+[project]
+name = "mitos-rag"
+version = "0.1.0"
+description = "RAG assistant that answers questions about Greek public administration procedures, using the Mitos registry (mitos.gov.gr)."
+readme = "README.md"
+authors = [
+    { name = "Pantelis Tsagkas" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic[bedrock]>=1.15.0",
+    "boto3>=1.43.113",
+    "fastapi>=0.159.1",
+    "httpx>=0.28.1",
+    "numpy>=2.5.4",
+    "pystemmer>=3.1.0",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+mitos-download = "mitos_rag.download:main"
+mitos-render = "mitos_rag.render:main"
+mitos-facts = "mitos_rag.facts:main"
+mitos-eval = "mitos_rag.evaluate:main"
+mitos-embed = "mitos_rag.embed:main"
+mitos-index = "mitos_rag.vectorstore:main"
+mitos-ask = "mitos_rag.answer:main"
+mitos-answer-eval = "mitos_rag.answer_eval:main"
+mitos-rerank-eval = "mitos_rag.rerank:main"
+mitos-api = "mitos_rag.api:main"
+mitos-feedback = "mitos_rag.feedback:main"
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

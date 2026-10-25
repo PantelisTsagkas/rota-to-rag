@@ -1,0 +1,9 @@
+# Allow-list: the image needs the code, the lock file and two data paths, nothing else.
+*
+!pyproject.toml
+!uv.lock
+!README.md
+!src/
+!data/docs/
+!data/facts/facts.jsonl
+**/__pycache__
