@@ -108,12 +108,23 @@ ERRORS = {
 
 # The procedure's own page on the Mitos site. `id.mitos.gov.gr` (the record's `url`) was down
 # with a 502 for every id on 2026-10-22 while these pages answered. The page name is the
-# record's title with spaces as underscores: all 4,406 titles match, and "/" stays literal.
+# record's namespace and title with spaces as underscores, and "/" stays literal.
 MITOS_PAGE_BASE = "https://mitos.gov.gr/index.php/"
 
+# Pages that failed `scripts/check_pages.py` against our snapshot: Mitos renamed 921332 and moved
+# 990784 to the ΠΑ namespace after our download (2026-10-14). These link to the id address, which
+# redirects to the right page. Re-run the check after every data refresh and update this set.
+PAGE_LINK_FALLBACK = frozenset({"921332", "990784"})
 
-def page_url(title: str) -> str:
-    return MITOS_PAGE_BASE + urllib.parse.quote("ΔΔ:" + title.replace(" ", "_"))
+
+def page_url(title: str, ns: str = "ΔΔ") -> str:
+    return MITOS_PAGE_BASE + urllib.parse.quote(f"{ns}:" + title.replace(" ", "_"))
+
+
+def procedure_link(row: dict[str, Any]) -> str:
+    if row["procedure_id"] in PAGE_LINK_FALLBACK:
+        return row["source_url"]
+    return page_url(row["title"], row.get("ns", "ΔΔ"))
 
 
 # ---------- "at a glance" tiles, read straight from the facts row, never from the model ----------
@@ -283,7 +294,7 @@ def payload(answer: Answer) -> dict[str, Any]:
             "procedure_id": pid,
             "title": row["title"],
             "url": row["source_url"],
-            "page_url": page_url(row["title"]),
+            "page_url": procedure_link(row),
             "last_updated": row["last_updated"][:10],
             "at_a_glance": at_a_glance(row),
             "apply_online": apply_online(row),

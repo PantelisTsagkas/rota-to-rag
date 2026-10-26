@@ -4,9 +4,9 @@ import json
 import os
 import sys
 import time
-import urllib.parse
-
 import httpx
+
+from mitos_rag.api import page_url
 
 facts_path, out_path = sys.argv[1], sys.argv[2]
 done = set()
@@ -19,7 +19,7 @@ with httpx.Client(timeout=30, follow_redirects=False, headers={"User-Agent": "mi
     for row in rows:
         if row["procedure_id"] in done:
             continue
-        url = "https://mitos.gov.gr/index.php/" + urllib.parse.quote("ΔΔ:" + row["title"].replace(" ", "_"))
+        url = page_url(row["title"], row.get("ns", "ΔΔ"))
         try:
             status = client.head(url).status_code
         except httpx.HTTPError as exc:

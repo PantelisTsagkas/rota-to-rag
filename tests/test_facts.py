@@ -45,6 +45,7 @@ def test_provenance_and_status() -> None:
 
     assert facts.procedure_id == "977354"
     assert facts.source_url == "https://id.mitos.gov.gr/977354"
+    assert facts.ns == service["ns"] == "ΔΔ"
     assert facts.last_updated == service["last_updated"]
     assert facts.ingested_at == INGESTED_AT
     assert facts.content_hash == content_hash(service)
@@ -95,3 +96,4 @@ def test_build_facts_writes_one_line_per_procedure(tmp_path: Path) -> None:
     row = json.loads(out.read_text(encoding="utf-8"))
     assert row["procedure_id"] == "439993"
     assert row["ingested_at"] == "2025-10-14T00:00:00+00:00"
+    assert row["ns"] == "ΔΔ"

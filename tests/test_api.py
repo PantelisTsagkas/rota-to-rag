@@ -10,7 +10,7 @@ from fastapi.testclient import TestClient
 
 from mitos_rag.answer import ATTRIBUTION, WARNING, Answer, Cancelled, Candidate, Evidence, Generation, render
 from mitos_rag.feedback import MemoryFeedback
-from mitos_rag.api import ERRORS, Limits, apply_online, at_a_glance, cost_el, create_app, duration_el, page_url, time_el
+from mitos_rag.api import ERRORS, Limits, apply_online, at_a_glance, cost_el, create_app, duration_el, page_url, procedure_link, time_el
 from mitos_rag.validate import validate
 
 PASSPORT = {
@@ -176,6 +176,17 @@ def test_page_url_is_the_mitos_page_named_after_the_title() -> None:
     )
     # "/" stays a path character; "&", "%" and "+" are encoded so they stay part of the name.
     assert page_url("Α/Β & Γ 5% +1").endswith("%3A%CE%91/%CE%92_%26_%CE%93_5%25_%2B1")
+
+
+def test_page_link_follows_the_namespace_and_falls_back_to_the_id_address() -> None:
+    title = "Διοικητική έρευνα"
+    assert page_url(title, "ΠΑ").startswith("https://mitos.gov.gr/index.php/%CE%A0%CE%91%3A")
+    assert procedure_link({"procedure_id": "1", "title": title, "ns": "ΠΑ", "source_url": "x"}) == page_url(title, "ΠΑ")
+    # Rows written before `ns` existed are ΔΔ.
+    assert procedure_link({"procedure_id": "1", "title": title, "source_url": "x"}) == page_url(title)
+    # 990784 failed the page check, so it links the id address, which redirects to the live page.
+    row = {"procedure_id": "990784", "title": title, "ns": "ΔΔ", "source_url": "https://id.mitos.gov.gr/990784"}
+    assert procedure_link(row) == "https://id.mitos.gov.gr/990784"
 
 
 def test_question_length_is_checked_before_any_call() -> None:

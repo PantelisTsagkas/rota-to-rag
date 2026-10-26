@@ -56,6 +56,7 @@ class Cost:
 class ProcedureFacts:
     procedure_id: str
     title: str
+    ns: str  # wiki namespace of the procedure's mitos.gov.gr page, almost always ΔΔ
     source_url: str
     last_updated: str | None
     ingested_at: str
@@ -136,6 +137,8 @@ def extract_facts(service: dict[str, Any], ingested_at: str) -> ProcedureFacts:
     return ProcedureFacts(
         procedure_id=procedure_id,
         title=(service.get("title") or {}).get("el") or process.get("official_title") or procedure_id,
+        # Mitos can move a procedure to another namespace (990784 went from ΔΔ to ΠΑ on 2026-10-14).
+        ns=service.get("ns") or "ΔΔ",
         # Built by our code from the id, so a citation link never depends on the model.
         source_url=f"https://id.mitos.gov.gr/{procedure_id}",
         last_updated=service.get("last_updated"),
