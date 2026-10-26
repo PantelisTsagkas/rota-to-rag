@@ -6,7 +6,9 @@
 
 **Status: ACTIVE.** Deployed on AWS. Retrieval, answers and the answer checker are evaluated on a held-out test set, and the known weak spots are listed under [Limitations](#limitations).
 
-<img src="docs/media/home.png" alt="The Ρώτα το home page on a phone: a question box, frequent questions and a privacy notice" width="300">
+<img src="docs/media/home.png" alt="The Ρώτα το home page on a phone: a question box, frequent questions and a privacy notice" width="250"> <img src="docs/media/answer-id-card.png" alt="An answer to 'my ID card is old and I want a new one, what do I need?': the official procedure name, fact tiles for how to apply, duration and validity, then the fees and documents" width="250"> <img src="docs/media/answer-id-card-source.png" alt="The end of the same answer: processing time, validity, the official Mitos page as the source, a feedback question and the Mitos credit" width="250">
+
+*Everyday wording in, the official procedure out: «Η ταυτότητά μου είναι παλιά και θέλω να βγάλω καινούργια» is answered from «Αντικατάσταση δελτίου ταυτότητας παλαιού τύπου», with every fee checked against the registry and a link to the official page.*
 
 ## The problem
 
