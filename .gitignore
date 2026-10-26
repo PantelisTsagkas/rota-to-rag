@@ -21,3 +21,6 @@ terraform.tfvars
 
 # Playwright MCP snapshots
 .playwright-mcp/
+
+# Private drafts (posts, notes), never exported
+drafts/
