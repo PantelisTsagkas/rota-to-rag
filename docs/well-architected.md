@@ -13,7 +13,7 @@ Last reviewed: 2026-10-22. Deployed: the account budget (`terraform/account`), t
 | Tests on every change, no real network in unit tests | Done: pytest with `httpx.MockTransport` and botocore `Stubber`. |
 | Remote Terraform state with locking | **Phase 6.** Both roots use local state for now. |
 | CI/CD: test, eval, plan, apply with GitHub OIDC | **Phase 6** (PRD step 14). There is no GitHub remote yet. |
-| Structured logs, dashboard, alarms on errors and failed refreshes | Partly: one log line per question with status, cost, per-stage seconds and tokens, in a 7-day log group. Dashboard and alarms are PRD step 16. |
+| Structured logs, dashboard, alarms on errors and failed refreshes | Partly: one log line per question with status, cost, per-stage seconds and tokens, in a 7-day log group. A CloudWatch dashboard (`terraform/app/dashboard.tf`, output `dashboard_url`) shows questions per UTC day against the cap, answers by status with estimated cost and latency, feedback votes, API and CloudFront request counts, and recent failures; a test keeps its Logs Insights regexes in step with the log lines. Alarms are still PRD step 16. |
 
 ## Security
 

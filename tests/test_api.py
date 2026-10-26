@@ -1,4 +1,5 @@
 import json
+import logging
 import re
 import threading
 from pathlib import Path
@@ -22,6 +23,7 @@ PASSPORT = {
     "can_apply_online": False,
 }
 FACTS = {"144400": PASSPORT}
+DASHBOARD = Path(__file__).parents[1] / "terraform" / "app" / "dashboard.tf"
 
 
 def output(**overrides: Any) -> dict[str, Any]:
@@ -434,3 +436,24 @@ def test_behind_cloudfront_the_limit_is_per_visitor_not_per_socket() -> None:
     assert ask("203.0.113.7:60001") == 429  # same visitor, another port
     assert ask("2001:db8::1:443") == 200  # IPv6: only the port is dropped
     assert ask("2001:db8::2:443") == 200
+
+
+def test_the_dashboard_queries_still_read_the_log_lines(caplog: Any) -> None:
+    # The CloudWatch dashboard parses these lines with Logs Insights regexes: if a line changes,
+    # the dashboard goes blank without an error, so the regexes are read from the Terraform here.
+    terraform = DASHBOARD.read_text(encoding="utf-8").replace("\\\\", "\\")
+    questions = re.compile(re.search(r'questions_filter = "filter @message like /(.+?)/"', terraform)[1])
+    status, vote = (re.compile(found.replace("(?<", "(?P<")) for found in re.findall(r"parse @message /(.+?)/ \|", terraform))
+    api = TestClient(create_app(FakeAssistant(), Limits(per_ip_per_minute=100, daily=100), 1.0, feedback=MemoryFeedback()))
+    with caplog.at_level(logging.INFO, logger="mitos_rag.api"):
+        answer_id = api.post("/ask", json={"question": "ποσο κανει το διαβατηριο"}).json()["answer_id"]
+        for vote_body in ({"helpful": False}, {"helpful": False, "reason": "missing_info"}):  # the UI's two steps
+            assert api.post("/ask/feedback", json={"answer_id": answer_id, **vote_body}).status_code == 204
+    lines = [record.getMessage() for record in caplog.records if record.name == "mitos_rag.api"]
+    asked = [line for line in lines if questions.search(line)]
+    assert len(asked) == 1
+    parsed = status.search(asked[0])
+    assert parsed and parsed["status"] == "answered" and float(parsed["cost"]) >= 0 and float(parsed["total"]) >= 0
+    voted = [found for line in lines if (found := vote.search(line))]
+    assert [(found["helpful"], found["reason"]) for found in voted] == [("False", "None"), ("False", "missing_info")]
+    assert not any("διαβατηριο" in line for line in lines)  # the logs never carry the question
