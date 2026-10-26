@@ -106,9 +106,13 @@ Every choice was measured before it was adopted. The records in [docs/decisions/
 | [013](docs/decisions/013-hosting.md) | How to host it | Lambda + CloudFront, about $0.03 a month idle |
 | [014](docs/decisions/014-answer-feedback.md) | Answer feedback | Yes or no with fixed reasons, no free text |
 
-## Run it yourself
+## Reproduce it
 
-The Python package and its commands keep the project's working name, `mitos-rag`. Python 3.12+ and [uv](https://docs.astral.sh/uv/).
+To use the assistant, open the [live demo](https://rotato.pantelis-tsagkas.com): nothing to install. This section is for anyone who wants to check the results, rerun the evals or adapt the pipeline to another corpus. The Python package and its commands keep the project's working name, `mitos-rag`.
+
+### Free, no AWS account
+
+Python 3.12+ and [uv](https://docs.astral.sh/uv/). The tests make no network calls, and the Mitos API needs no key.
 
 ```bash
 uv sync
@@ -125,7 +129,11 @@ uv run mitos-facts --raw data/raw --out data/facts/facts.jsonl
 uv run mitos-eval --split dev
 ```
 
-Dense retrieval, answers and the S3 Vectors index need AWS credentials and cost money; prices are in the decision records:
+Downloading all 4,406 procedures takes 30 to 45 minutes with the default delay. Re-runs fetch only procedures whose `last_updated` changed.
+
+### With AWS (paid)
+
+Dense retrieval, reranking, answers and the API need an AWS account, credentials, Terraform and Amazon Bedrock in eu-central-1. Two things to expect on a new account: the first call to each model creates an AWS Marketplace subscription, and the Bedrock quotas for the Claude models can start at 0, so the calls fail until a Service Quotas increase is granted, which can take days ([006](docs/decisions/006-grounded-answers-haiku.md), [007](docs/decisions/007-answer-model-sonnet-4-6.md)). Prices are in the decision records:
 
 ```bash
 uv run mitos-embed --model cohere                       # Bedrock embeddings, about $1.70 for the corpus
@@ -145,8 +153,6 @@ uv run mitos-api                             # open http://127.0.0.1:8000
 uv run mitos-answer-eval --split dev --dry-run
 uv run mitos-answer-eval --split dev
 ```
-
-Downloading all 4,406 procedures takes 30 to 45 minutes with the default delay. Re-runs fetch only procedures whose `last_updated` changed.
 
 ### Deploy the demo
 
