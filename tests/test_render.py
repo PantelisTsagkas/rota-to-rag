@@ -122,6 +122,19 @@ def test_render_directory(tmp_path: Path) -> None:
     assert sorted(p.name for p in (tmp_path / "docs").iterdir()) == ["144400.md", "439993.md"]
 
 
+def test_render_directory_deletes_procedures_no_longer_downloaded(tmp_path: Path) -> None:
+    services = tmp_path / "raw" / "services"
+    services.mkdir(parents=True)
+    (services / "439993.json").write_text((FIXTURES / "service_439993.json").read_text(encoding="utf-8"), encoding="utf-8")
+    docs = tmp_path / "docs"
+    docs.mkdir()
+    (docs / "990001.md").write_text("# removed by Mitos\n", encoding="utf-8")
+
+    render_directory(tmp_path / "raw", docs)
+
+    assert sorted(p.name for p in docs.iterdir()) == ["439993.md"]
+
+
 def test_get_section_accepts_dict_keyed_by_number() -> None:
     # Shape seen in record 275554 for process_provision_digital_locations.
     metadata = {"process_provision_digital_locations": {"2": {"n": "b"}, "10": {"n": "c"}, "1": {"n": "a"}}}

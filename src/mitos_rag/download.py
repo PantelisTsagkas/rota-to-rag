@@ -5,7 +5,9 @@ Output layout:
     <out>/services/<id>.json       full procedure, exactly as the API returned it
 
 Re-running is incremental: a procedure is fetched again only when its
-`last_updated` in the list differs from the copy on disk.
+`last_updated` in the list differs from the copy on disk. A full run also moves
+procedures Mitos no longer lists to <out>/removed/, so later stages drop them
+(the Mitos team asked for this in their reply of 2026-10-28).
 
 Usage:
     uv run mitos-download --out data/raw --max-services 20   # quick sample
@@ -31,6 +33,7 @@ class DownloadStats:
     downloaded: int = 0
     skipped_unchanged: int = 0
     failed: int = 0
+    removed: int = 0
 
 
 def service_path(out_dir: Path, service_id: str) -> Path:
@@ -45,6 +48,22 @@ def is_up_to_date(path: Path, summary: ServiceSummary) -> bool:
     except json.JSONDecodeError:
         return False
     return stored.get("last_updated") == summary.last_updated
+
+
+def retire_removed(out_dir: Path, listed_ids: set[str]) -> list[str]:
+    """Move every stored procedure that is not in the current list to <out>/removed/.
+
+    Moved, not deleted, so a wrong list can be undone by moving the files back."""
+    removed_dir = out_dir / "removed"
+    retired: list[str] = []
+    for path in sorted((out_dir / "services").glob("*.json")):
+        if path.stem in listed_ids:
+            continue
+        removed_dir.mkdir(exist_ok=True)
+        path.replace(removed_dir / path.name)
+        retired.append(path.stem)
+        logger.info("Mitos no longer lists %s: moved to %s", path.stem, removed_dir)
+    return retired
 
 
 def download_all(
@@ -70,6 +89,10 @@ def download_all(
     with index_path.open("w", encoding="utf-8") as index_file:
         for summary in summaries:
             index_file.write(json.dumps(summary.to_dict(), ensure_ascii=False) + "\n")
+
+    # A sample run lists only part of the catalogue, and an empty list means the API failed.
+    if max_services is None and summaries:
+        stats.removed = len(retire_removed(out_dir, {summary.id for summary in summaries}))
 
     for position, summary in enumerate(summaries, start=1):
         path = service_path(out_dir, summary.id)
@@ -109,11 +132,12 @@ def main() -> None:
             page_size=args.page_size,
         )
     logger.info(
-        "Done. listed=%d downloaded=%d unchanged=%d failed=%d",
+        "Done. listed=%d downloaded=%d unchanged=%d failed=%d removed=%d",
         stats.listed,
         stats.downloaded,
         stats.skipped_unchanged,
         stats.failed,
+        stats.removed,
     )
 
 

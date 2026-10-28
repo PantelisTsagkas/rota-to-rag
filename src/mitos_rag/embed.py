@@ -270,7 +270,7 @@ def main() -> None:
     except AuthExpiredError as error:
         raise SystemExit(
             f"AWS credentials expired or missing ({error}).\n"
-            "Run `aws sso login --profile jet-admin`, then rerun the same command: it resumes from the cache."
+            "Sign in again (for example `aws sso login`), then rerun the same command: it resumes from the cache."
         ) from error
 
 

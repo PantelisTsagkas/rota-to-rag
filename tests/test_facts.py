@@ -28,6 +28,16 @@ def test_passport_costs_keep_alternatives_and_conditions() -> None:
     assert facts.document_count == 16
 
 
+def test_amounts_mitos_confirmed_as_misread_are_unknown() -> None:
+    # Mitos confirmed the thousands-dot bug in 242765 (reply of 2026-10-28): keep the rows, drop the numbers.
+    service = {**load("service_144400.json"), "id": "242765"}
+    facts = extract_facts(service, ingested_at=INGESTED_AT)
+
+    assert len(facts.costs) == len(extract_facts(load("service_144400.json"), ingested_at=INGESTED_AT).costs)
+    assert all(cost.amount_min is None and cost.amount_max is None for cost in facts.costs)
+    assert facts.is_free is False
+
+
 def test_digital_procedure_is_free_and_online() -> None:
     facts = extract_facts(load("service_439993.json"), ingested_at=INGESTED_AT)
 

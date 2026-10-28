@@ -345,13 +345,22 @@ def render_service_markdown(service: dict[str, Any]) -> str:
 
 
 def render_directory(raw_dir: Path, out_dir: Path) -> int:
-    """Render every <raw_dir>/services/*.json to <out_dir>/<id>.md. Returns the count."""
+    """Render every <raw_dir>/services/*.json to <out_dir>/<id>.md. Returns the count.
+
+    A Markdown file whose procedure is no longer in <raw_dir> (Mitos removed it) is deleted,
+    because the corpus reads every file in <out_dir>."""
     out_dir.mkdir(parents=True, exist_ok=True)
     count = 0
+    rendered: set[str] = set()
     for path in sorted((raw_dir / "services").glob("*.json")):
         service = json.loads(path.read_text(encoding="utf-8"))
         (out_dir / f"{path.stem}.md").write_text(render_service_markdown(service), encoding="utf-8")
+        rendered.add(path.stem)
         count += 1
+    for stale in sorted(out_dir.glob("*.md")):
+        if stale.stem not in rendered:
+            stale.unlink()
+            logger.info("Deleted %s: its procedure is no longer downloaded", stale.name)
     return count
 
 

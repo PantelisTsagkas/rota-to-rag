@@ -407,6 +407,18 @@ def test_the_footer_keeps_the_privacy_note() -> None:
         assert claim in page
 
 
+def test_the_footer_uses_the_attribution_mitos_suggested() -> None:
+    # Wording from the Mitos team's reply of 2026-10-28; they also asked us to keep the per-procedure link.
+    page = (WEB / "index.html").read_text()
+    for part in (
+        "Πηγή δεδομένων: Εθνικό Μητρώο Διοικητικών Διαδικασιών",
+        "(CC BY-SA 4.0)",
+        "δεν αποτελεί επίσημη υπηρεσία του Μίτου ή του Ελληνικού Δημοσίου",
+        "την αντίστοιχη καταχώριση στον Μίτο",
+    ):
+        assert part in page
+
+
 def test_a_busy_reply_counts_against_no_limit() -> None:
     class HeldLock:
         def acquire(self, timeout: float = 0.0) -> bool:

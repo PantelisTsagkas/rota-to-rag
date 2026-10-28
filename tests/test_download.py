@@ -7,17 +7,17 @@ from mitos_rag.client import MitosClient
 from mitos_rag.download import download_all
 
 
-def fake_api(last_updated: str, fail_ids: frozenset[str] = frozenset()) -> httpx.MockTransport:
+def fake_api(
+    last_updated: str, fail_ids: frozenset[str] = frozenset(), listed_ids: tuple[str, ...] = ("1", "2", "3")
+) -> httpx.MockTransport:
     summaries = [
-        {"id": "1", "title": {"el": "Α"}, "ns": "ΔΔ", "last_updated": last_updated},
-        {"id": "2", "title": {"el": "Β"}, "ns": "ΔΔ", "last_updated": last_updated},
-        {"id": "3", "title": {"el": "Γ"}, "ns": "ΔΔ", "last_updated": last_updated},
+        {"id": service_id, "title": {"el": "Α"}, "ns": "ΔΔ", "last_updated": last_updated} for service_id in listed_ids
     ]
 
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.path == "/v1/services":
             return httpx.Response(
-                200, json={"success": True, "total": 3, "next_page": None, "data": summaries}
+                200, json={"success": True, "total": len(summaries), "next_page": None, "data": summaries}
             )
         service_id = request.url.path.rsplit("/", 1)[-1]
         if service_id in fail_ids:
@@ -63,3 +63,23 @@ def test_max_services_limits_the_sample(tmp_path: Path) -> None:
 def test_one_failure_does_not_stop_the_run(tmp_path: Path) -> None:
     stats = run(tmp_path, fake_api("v1", fail_ids=frozenset({"2"})))
     assert stats.downloaded == 2 and stats.failed == 1
+
+
+def test_a_procedure_mitos_no_longer_lists_is_moved_out(tmp_path: Path) -> None:
+    run(tmp_path, fake_api("v1"))
+
+    stats = run(tmp_path, fake_api("v1", listed_ids=("1", "3", "4")))
+
+    assert stats.removed == 1 and stats.downloaded == 1
+    assert sorted(p.name for p in (tmp_path / "services").iterdir()) == ["1.json", "3.json", "4.json"]
+    assert [p.name for p in (tmp_path / "removed").iterdir()] == ["2.json"]
+
+
+def test_a_sample_or_empty_list_removes_nothing(tmp_path: Path) -> None:
+    run(tmp_path, fake_api("v1"))
+
+    sample = run(tmp_path, fake_api("v1"), max_services=1)
+    empty = run(tmp_path, fake_api("v1", listed_ids=()))
+
+    assert sample.removed == 0 and empty.removed == 0
+    assert len(list((tmp_path / "services").iterdir())) == 3

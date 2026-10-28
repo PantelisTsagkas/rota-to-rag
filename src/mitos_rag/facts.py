@@ -40,6 +40,14 @@ SUBMISSION_CHANNELS: dict[str, tuple[str, ...]] = {
 }
 
 
+# The Mitos team confirmed (reply of 2026-10-28) that the API reads the thousands dot in
+# these procedures' amounts as a decimal point, so 1.000 comes back as 1. It affects every
+# amount in them, not only the rows where min > max. Their amounts are unknown until Mitos
+# fixes them; the procedure text keeps the right figures. Remove an id once a download
+# shows its amounts fixed.
+UNRELIABLE_AMOUNTS: frozenset[str] = frozenset({"242765", "376453"})
+
+
 @dataclass(frozen=True)
 class Cost:
     num_id: int | None
@@ -89,13 +97,13 @@ def _as_int(value: Any) -> int | None:
     return value if isinstance(value, int) and not isinstance(value, bool) else None
 
 
-def extract_costs(metadata: dict[str, Any]) -> tuple[Cost, ...]:
+def extract_costs(metadata: dict[str, Any], amounts_known: bool = True) -> tuple[Cost, ...]:
     return tuple(
         Cost(
             num_id=_as_int(cost.get("evidence_cost_num_id")),
             cost_type=cost.get("evidence_cost_type"),
-            amount_min=_as_float(cost.get("evidence_cost_min")),
-            amount_max=_as_float(cost.get("evidence_cost_max")),
+            amount_min=_as_float(cost.get("evidence_cost_min")) if amounts_known else None,
+            amount_max=_as_float(cost.get("evidence_cost_max")) if amounts_known else None,
             calculation=tuple(cost.get("evidence_cost_calculation") or ()),
             description=(cost.get("evidence_cost_description") or "").strip() or None,
             alternative_of=_as_int(cost.get("evidence_cost_alternative_of")),
@@ -120,7 +128,7 @@ def extract_facts(service: dict[str, Any], ingested_at: str) -> ProcedureFacts:
     glance: dict[str, Any] = metadata.get("glance") or {}
     procedure_id = str(service.get("id"))
 
-    costs = extract_costs(metadata)
+    costs = extract_costs(metadata, amounts_known=procedure_id not in UNRELIABLE_AMOUNTS)
     glance_cost = (glance.get("cost") or {}).get("value")
     # Three procedures say "free" in the glance but list costs: trust the cost rows.
     if costs:
